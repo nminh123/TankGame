@@ -1,0 +1,4 @@
+#Mon Jun 10 16:46:03 ICT 2024
+base.0=/Users/nhatminh/Documents/Nhật Minh/Libgdx/TankGame/android/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

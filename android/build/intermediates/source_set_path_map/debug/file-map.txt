@@ -1,0 +1,7 @@
+com.nminh123.tankgame.android-pngs-0 /Users/nhatminh/Documents/Nhật Minh/Libgdx/TankGame/android/build/generated/res/pngs/debug
+com.nminh123.tankgame.android-resValues-1 /Users/nhatminh/Documents/Nhật Minh/Libgdx/TankGame/android/build/generated/res/resValues/debug
+com.nminh123.tankgame.android-packageDebugResources-2 /Users/nhatminh/Documents/Nhật Minh/Libgdx/TankGame/android/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.nminh123.tankgame.android-packageDebugResources-3 /Users/nhatminh/Documents/Nhật Minh/Libgdx/TankGame/android/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.nminh123.tankgame.android-merged_res-4 /Users/nhatminh/Documents/Nhật Minh/Libgdx/TankGame/android/build/intermediates/merged_res/debug
+com.nminh123.tankgame.android-android-5 /Users/nhatminh/Documents/Nhật Minh/Libgdx/TankGame/android/res
+com.nminh123.tankgame.android-debug-6 /Users/nhatminh/Documents/Nhật Minh/Libgdx/TankGame/android/src/debug/res
