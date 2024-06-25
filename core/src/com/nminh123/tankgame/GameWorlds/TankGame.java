@@ -2,16 +2,17 @@ package com.nminh123.tankgame.GameWorlds;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.nminh123.tankgame.Levels.Level_1;
 
 
 public class TankGame extends Game {
 
-	Batch batch;
+	public SpriteBatch batch;
 	@Override
 	public void create() {
-		setScreen(new Level_1(this));
-		setScreen(new GameScreen());
+		batch = new SpriteBatch();
+		setScreen(new GameScreen(this));
 	}
 
 	@Override
