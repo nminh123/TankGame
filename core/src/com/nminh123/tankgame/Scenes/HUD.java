@@ -32,11 +32,11 @@ public class HUD {
         table.top();
         table.setFillParent(true);
 
-        ScoreLabel = new Label(String.format("Time: %d", timer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        TimeLabel = new Label(String.format("Score: %d",score), new Label.LabelStyle(new BitmapFont(),Color.WHITE));
+        ScoreLabel = new Label(String.format("TIME: %d", timer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        TimeLabel = new Label(String.format("SCORE: %d",score), new Label.LabelStyle(new BitmapFont(),Color.WHITE));
 
-        table.add(TimeLabel).expandX().padTop(10);
-        table.add(ScoreLabel).expandX().padRight(10);
+        table.add(TimeLabel).expandX();
+        table.add(ScoreLabel).expandX();
 
         stage.addActor(table);
     }
