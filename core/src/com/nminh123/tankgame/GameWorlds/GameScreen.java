@@ -29,12 +29,13 @@ public class GameScreen implements Screen {
         gamePort = new FitViewport(Constants.VIEWPORT_WIDTH, Constants.VIEWPORT_HEIGHT, gamecam);
         stage = new GameStage();
         hud = new HUD(game.batch);
-
+/*
         gamecam.setToOrtho(false,Constants.VIEWPORT_WIDTH,Constants.VIEWPORT_HEIGHT);
         mapLoader = new TmxMapLoader();
         map = mapLoader.load("maps/stage/mapsMain.tmx");
         renderer = new OrthogonalTiledMapRenderer(map);
         gamecam.position.set((float)gamePort.getScreenWidth()/2,(float)gamePort.getScreenHeight()/2,0);
+ */
     }
 
     /*
