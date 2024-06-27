@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.JsonReader;
@@ -80,7 +79,7 @@ public class AssetsManager {
 
     public void SpriteManager()
     {
-        textureAtlasSpriteGame = manager.get("Sprite/SpriteGame.atlas",TextureAtlas.class);
+        textureAtlasSpriteGame = manager.get(Constants.AtlasSpriteGame,TextureAtlas.class);
         LoadBackGround();
         LoadBomb();
         LoadEffects();
@@ -88,7 +87,7 @@ public class AssetsManager {
 
     public void LoadMenuGame()
     {
-        skinStyle = manager.get("skins/GameSyle.json", Skin.class);
+        skinStyle = manager.get(Constants.JsonGameStyle, Skin.class);
         JsonReader jsonReader = new JsonReader();
         JsonValue Valuedata = jsonReader.parse(Gdx.files.internal(Constants.JsoncrachType));
 
@@ -115,7 +114,7 @@ public class AssetsManager {
         valueBonus = jsonReader.parse(Gdx.files.internal(Constants.JsonbonusValue));
         valueNiveu = jsonReader.parse(Gdx.files.internal(Constants.JsonvalueNive));
 
-        font = manager.get("skins/jf_flat.fnt", BitmapFont.class);
+        font = manager.get(Constants.fontt, BitmapFont.class);
         font.getData().setScale(0.2f);
 
         maploader = new MapLoader();
@@ -131,28 +130,28 @@ public class AssetsManager {
     public void LoadBomb()
     {
         String Folder = "Bombs";
-        animationBombExplosionA = new Animation<TextureRegion>(Constants.frameDuration,
+        animationBombExplosionA = new Animation<>(Constants.frameDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Bomb_Explosion_A"));
-        animationBombExplosionB = new Animation<TextureRegion>(Constants.frameDuration,
+        animationBombExplosionB = new Animation<>(Constants.frameDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Bomb_Explosion_B"));
-        animationBombExplosionC = new Animation<TextureRegion>(Constants.frameDuration,
+        animationBombExplosionC = new Animation<>(Constants.frameDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Bomb_Explosion_C"));
 
-        animationBombIdleA = new Animation<TextureRegion>(Constants.frameDuration,
+        animationBombIdleA = new Animation<>(Constants.frameDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Bomb_Idle_A"));
-        animationBombIdleB = new Animation<TextureRegion>(Constants.frameDuration,
+        animationBombIdleB = new Animation<>(Constants.frameDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Bomb_Idle_B"));
-        animationBombIdleC = new Animation<TextureRegion>(Constants.frameDuration,
+        animationBombIdleC = new Animation<>(Constants.frameDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Bomb_Idle_C"));
 
-        animationBombTrigerringA = new Animation<TextureRegion>(Constants.frameDuration,
+        animationBombTrigerringA = new Animation<>(Constants.frameDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Bomb_Triggering_A"));
-        animationBombTrigerringB = new Animation<TextureRegion>(Constants.frameDuration,
+        animationBombTrigerringB = new Animation<>(Constants.frameDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Bomb_Triggering_C"));
-        animationBombTrigerringC = new Animation<TextureRegion>(Constants.frameDuration,
+        animationBombTrigerringC = new Animation<>(Constants.frameDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Bomb_Triggering_C"));
 
-        animationCanonFiring = new Animation<TextureRegion>(Constants.frameDuration,
+        animationCanonFiring = new Animation<>(Constants.frameDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "cannon-firing"));
 
         Light1 = textureAtlasSpriteGame.findRegion(Folder + "Light", 1);
@@ -163,70 +162,69 @@ public class AssetsManager {
     public void LoadEffects()
     {
         String Folder = "Effects/";
-        animationArrowA = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationArrowA = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "arrow-a"));
-        animationArrow = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationArrow = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "arrow"));
-        animationAuraFinal = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationAuraFinal = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "aura-final"));
-        animationAura = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationAura = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "aura"));
-        animationBlueishFlame = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationBlueishFlame = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "blueish_flame"));
-        animationBlueishFlameUp = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationBlueishFlameUp = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "blueish_flame_up"));
-        animationBlueishSmoke = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationBlueishSmoke = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "blueish_smoke"));
-        animationBlueishSmokeUp = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationBlueishSmokeUp = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "blueish_smoke_up"));
-        animationFireSmoke = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationFireSmoke = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "fire+smoke"));
-        animationFireSmokeUp = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationFireSmokeUp = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "fire+smoke_up"));
-        animationFire = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationFire = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "fire"));
-        animationFireUp = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationFireUp = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "fire_up"));
-
-        animationImpactAAsteroidA = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationImpactAAsteroidA = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "ImpactA/impact-asteroid-a"));
-        animationImpactBAsteroidB = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationImpactBAsteroidB = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "ImpactB/impact-asteroid-b"));
-        animationImpactCAsteroidC = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationImpactCAsteroidC = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "ImpactC/impact-asteroid-c"));
-        animationMagic = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationMagic = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "magic"));
-        animationMagicUp = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationMagicUp = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "magic_up"));
-        animationMuzzle = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationMuzzle = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "muzzle"));
-        animationShipDeath = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationShipDeath = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "ship-death"));
-        animationSmoke = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationSmoke = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "smoke"));
-        animationSpriteEffectExhaust00 = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationSpriteEffectExhaust00 = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Sprite_Effects_Exhaust_00"));
-        animationSpriteEffectExhaust01 = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationSpriteEffectExhaust01 = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Sprite_Effects_Exhaust_01"));
-        animationSpriteEffectExhaust02 = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationSpriteEffectExhaust02 = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Sprite_Effects_Exhaust_02"));
-        animationSpriteEffectExplosion = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationSpriteEffectExplosion = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Sprite_Effects_Explosion"));
-        animationSpriteFireShotsFlame = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationSpriteFireShotsFlame = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Sprite_Fire_Shots_Flame"));
-        animationSpriteFireShotsImpactA = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationSpriteFireShotsImpactA = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Sprite_Fire_Shots_Impact_A"));
-        animationSpriteFireShotsImpactB = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationSpriteFireShotsImpactB = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Sprite_Fire_Shots_Impact_B"));
-        animationSpriteFireShotsShotA = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationSpriteFireShotsShotA = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Sprite_Fire_Shots_Shot_A"));
-        animationSpriteFireShotsShotB = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationSpriteFireShotsShotB = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Sprite_Fire_Shots_Shot_B"));
-        animationStarA = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationStarA = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "stara"));
-        animationStarB = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationStarB = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "starb"));
-        animationStarC = new Animation<TextureRegion>(Constants.EframeDuration,
+        animationStarC = new Animation<>(Constants.EframeDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "starc"));
 
         KillIcon = textureAtlasSpriteGame.findRegion(Folder + "Kill_Icon");
