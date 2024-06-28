@@ -20,50 +20,19 @@ public class GameScreen implements Screen {
     private GameStage stage;
     private HUD hud;
     private Viewport gamePort;
-    private TiledMap map;
-    private OrthogonalTiledMapRenderer renderer;
-    private TmxMapLoader mapLoader;
     public GameScreen(TankGame game) {
         this.game = game;
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(Constants.VIEWPORT_WIDTH, Constants.VIEWPORT_HEIGHT, gamecam);
         stage = new GameStage();
         hud = new HUD(game.batch);
-/*
-        gamecam.setToOrtho(false,Constants.VIEWPORT_WIDTH,Constants.VIEWPORT_HEIGHT);
-        mapLoader = new TmxMapLoader();
-        map = mapLoader.load("maps/stage/mapsMain.tmx");
-        renderer = new OrthogonalTiledMapRenderer(map);
-        gamecam.position.set((float)gamePort.getScreenWidth()/2,(float)gamePort.getScreenHeight()/2,0);
- */
     }
-
-    /*
-    public void HandleInput(float deltaTime)
-    {
-        if(Gdx.input.isTouched())
-        {
-            gamecam.position.x += 100 * deltaTime;
-        }
-    }
-
-    public void update(float deltaTime)
-    {
-        HandleInput(deltaTime);
-        renderer.setView(gamecam);
-        gamecam.update();
-    }
-    */
 
     @Override
     public void render(float delta) {
-        //update(delta);
         Gdx.gl.glClearColor(0,0,0,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        //renderer.render();
-        gamecam.update();
-        renderer.setView(gamecam);
-        renderer.render();
+
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
     }
@@ -95,7 +64,6 @@ public class GameScreen implements Screen {
 
     @Override
     public void dispose() {
-        renderer.dispose();
-        map.dispose();
+
     }
 }

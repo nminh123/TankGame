@@ -18,9 +18,11 @@ public class AssetsManager {
     public Skin skinStyle;
     public BitmapFont font;
     public MapLoader maploader;
-    public static JsonValue jsonDataGunA, jsonDataGunB, jsonDataHull, jsonDataTrack, jsonDataShell, jsonDataEnemy;
+    public static JsonValue jsonDataGunA, jsonDataGunB,
+            jsonDataHull, jsonDataTrack, jsonDataShell, jsonDataEnemy;
     public static JsonValue jsonMenu, jsonSetting, jsonModeGame,
-            jsonShop, jsonHanger, jsonBonus, jsonSelectStage, jsonHelp, jsonCredits,jsonDialoge;
+            jsonShop, jsonHanger, jsonBonus, jsonSelectStage,
+            jsonHelp, jsonCredits,jsonDialoge;
     public static JsonValue valueBonus, valueNiveu;
     public static TextureRegion backgroundPlan1,backgroundPlan2;
     public static TextureRegion KillIcon;
@@ -98,7 +100,8 @@ public class AssetsManager {
         jsonDataShell = Valuedata.get("Shell");
         jsonDataEnemy = Valuedata.get("crach");
 
-        JsonValue valueLanguage = jsonReader.parse(Gdx.files.internal(Constants.JsonTraduction));
+        JsonValue valueLanguage = jsonReader.parse
+                (Gdx.files.internal(Constants.JsonTraduction));
 
         jsonMenu = valueLanguage.get("Menu");
         jsonSetting = valueLanguage.get("Setting");
@@ -129,7 +132,7 @@ public class AssetsManager {
 
     public void LoadBomb()
     {
-        String Folder = "Bombs";
+        String Folder = "Bombs/";
         animationBombExplosionA = new Animation<>(Constants.frameDuration,
                 textureAtlasSpriteGame.findRegions(Folder + "Bomb_Explosion_A"));
         animationBombExplosionB = new Animation<>(Constants.frameDuration,
