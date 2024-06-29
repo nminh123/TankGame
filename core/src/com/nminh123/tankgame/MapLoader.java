@@ -1,7 +1,6 @@
 package com.nminh123.tankgame;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -23,7 +22,8 @@ public class MapLoader extends TmxMapLoader implements Disposable {
     TiledMapTileSet tileSet;
     FileHandle tmxFile;
 
-    public MapLoader() {
+    public MapLoader()
+    {
         super();
         parameter = new Parameters();
         tmxFile = resolve("maps/stage/mapsMain.tmx");
@@ -32,7 +32,8 @@ public class MapLoader extends TmxMapLoader implements Disposable {
         this.textures = new ObjectMap<>();
         this.maps = new ObjectMap<>();
         Array<FileHandle> textureFiles = getDependencyFileHandles(tmxFile);
-        for (FileHandle textureFile : textureFiles) {
+        for (FileHandle textureFile : textureFiles)
+        {
             Texture texture = new Texture(textureFile, parameter.generateMipMaps);
             texture.setFilter(parameter.textureMinFilter, parameter.textureMagFilter);
             textures.put(textureFile.path(), texture);
@@ -43,35 +44,43 @@ public class MapLoader extends TmxMapLoader implements Disposable {
     }
 
     @Override
-    public TiledMap load(String fileName) {
+    public TiledMap load(String fileName)
+    {
         return super.load(fileName);
     }
 
     @Override
-    public TiledMap load(String fileName, Parameters parameter) {
+    public TiledMap load(String fileName, Parameters parameter)
+    {
         Gdx.app.log("Map", "Load");
-        if (maps.containsKey(fileName)) {
+        if (maps.containsKey(fileName))
+        {
             return maps.get(fileName);
-        } else {
+        }
+        else
+        {
             FileHandle tmxFile = resolve("maps/stage/" + fileName);
             maps.put(fileName, load(tmxFile, parameter));
             return map;
         }
     }
 
-    public TiledMap load(String path, FileHandle tmxFile) {
+    public TiledMap load(String path, FileHandle tmxFile)
+    {
         TiledMap tiledMap = this.load(tmxFile, parameter);
         int code = tiledMap.getProperties().get("code", 99, Integer.class);
         maps.put(path + (code + 1) + ".tmx", tiledMap);
         return tiledMap;
     }
 
-    public TiledMap load(FileHandle tmxFile) {
+    public TiledMap load(FileHandle tmxFile)
+    {
         TiledMap tiledMap = this.load(tmxFile, parameter);
         return tiledMap;
     }
 
-    public TiledMap load(FileHandle tmxFile, Parameters parameter) {
+    public TiledMap load(FileHandle tmxFile, Parameters parameter)
+    {
         this.root = xml.parse(tmxFile);
         TiledMap map = loadTiledMap(tmxFile, parameter, imageResolver);
         map.setOwnedResources(textures.values().toArray());
@@ -79,7 +88,8 @@ public class MapLoader extends TmxMapLoader implements Disposable {
     }
 
     @Override
-    protected void loadTileSet(XmlReader.Element element, FileHandle tmxFile, ImageResolver imageResolver) {
+    protected void loadTileSet(XmlReader.Element element, FileHandle tmxFile, ImageResolver imageResolver)
+    {
         if (tileSet != null)
             map.getTileSets().addTileSet(tileSet);
         else
@@ -92,6 +102,7 @@ public class MapLoader extends TmxMapLoader implements Disposable {
         for (Texture texture : textures.values())
             texture.dispose();
     }
+
 
     protected Array<FileHandle> getDependencyFileHandles(FileHandle tmxFile)
     {

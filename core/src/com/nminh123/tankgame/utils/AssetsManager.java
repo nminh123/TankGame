@@ -71,6 +71,11 @@ public class AssetsManager {
     public static Animation<TextureRegion> animationStarC;
 
 
+    public AssetsManager()
+    {
+        manager = new AssetManager();
+    }
+
     public void LoadAsset()
     {
         manager = new AssetManager();
